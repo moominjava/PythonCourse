@@ -1,0 +1,25 @@
+//url을 가져올수 있는 pakege
+import requests
+//html정보를 가져올 수 있는 pakege
+from bs4 import BeautifulSoup
+
+//url로부터 정보를 가져온다
+indeed_resul = requests.get("https://jp.indeed.com/%E6%B1%82%E4%BA%BA?as_and=python&as_phr=&as_any=&as_not=&as_ttl=&as_cmp=&jt=all&st=&as_src=&salary=&radius=25&l=&fromage=last&limit=50&sort=&psf=advsrch&from=advancedsearch")
+//가져온 url에서 html정보를 가져온다. page를 가져온다
+//soup-데이터를 추출한다
+indeed_soup = BeautifulSoup(indeed_resul.text, "html.parser")
+//find-div에서 class명이 pagination인 정보를 찾는다
+pagination = indeed_soup.find("div", {"class":"pagination"})
+//찾은 div정보에서 a를 찾는다
+//각각 하나의 정보는 링크로 만들어져 있기 때문에 a링크 정보를 가져온다
+links= pagination.find_all('a')
+// 정보를 받아올 list를 만들다
+spans = []
+
+//필요한 정보가 a 안에 span으로 저장되어 있기 때문에   각 a링크에서 span를 가져온다
+for link in links
+  spans.append(link.find("span"))
+//page의 마지막 요소까지 지정
+//인덱싱-뒤에서는 -1부터 시작한다
+print(spans[:-1])
+ 
