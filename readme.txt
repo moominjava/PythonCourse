@@ -1,0 +1,2 @@
+PythoneCourseはpythonを利用して"indeed", "stackoverflow"から
+採用情報をscrappingしてエクセルへ格納します。
