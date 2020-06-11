@@ -1,0 +1,14 @@
+import csv
+
+def save_to_file(jobs):
+	//open 파일을 열어주는 함수, 파일이 없는 경우에는 파일생성
+	//mode 파일의 모드를 정한다 읽기전용, 쓰기전용...
+	//생성한 파일을 jobs.csv라는 이름으로 생성하여 file에 넣는다
+  file = open("jobs.csv", mode="w")
+	//생성한 file을 csv형식으로 작성한다
+  writer = csv.writer(file)
+	//writerow함수로 선두의 메뉴를 입력한다
+  writer.writerow(["title", "company", "location", "link"])
+  for job in jobs:
+    writer.writerow(list(job.values()))
+  return
