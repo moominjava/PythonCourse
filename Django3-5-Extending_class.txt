@@ -1,0 +1,33 @@
+상속 확장
+class Car():
+
+  def __init__(self, **kwargs):
+    self.wheels = 4
+    self.doors = 4
+    self.windows = 4
+    self.seats = 4
+    self.color = kwargs.get("color", "black")
+    self.price = kwargs.get("price", "$20")
+
+  def start(self):
+    return f"Car with {self.wheels} wheels"
+
+	클래스의 확장
+class Convertible(Car):
+
+  def __init__(self, **kwargs):
+	기존의 클래스에 존재하는 값과 새로운 클래스에 있는 값을 모두 사용하고 싶을때
+	super이라는 펑션을 사용한다
+	super: 부모클래스를 호출하는 함수
+    super()
+    self.time = kwargs.get("time", 10)
+
+  def take_off(self):
+    return "taking off"
+
+class something(Convertible):
+  pass
+
+porshe = Convertible(color="green", price="$40")
+mini = Car()
+porshe.take_off()
