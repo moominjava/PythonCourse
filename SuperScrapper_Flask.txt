@@ -1,0 +1,21 @@
+파이썬으로 웹사이트를 만들수 있다 
+웹 프레임워크 flask를 이용한다 
+
+repl.it환경에서 웹사이트를 만들기 위해서는 flask를 이용
+app 함수를 이용하여 host를 선언하고 서버를 만든다 
+
+@ : 데코레이션을 뜻한다 
+@app.route("/")
+def contact():
+데코레이션은 바로 밑에 함수만 읽는다 
+데코레이션 밑에 변수를 선언하면 에러
+@app.route("/<username>")
+def contact(username):
+  return f"Hello {username} how are you doing"
+
+
+dynamic urls
+홈페이지 주소 뒤에 /username을 입력하면 해당 페이지로 이동
+
+
+print(request.args.get('word'))
